@@ -104,4 +104,4 @@ function render()
  renderer.render( scene, camera );
 }
 
-export{CreateWebsiteContainer, CreateArScene, CreateArCamera, CreateLight, CreateRenderer, AddArButton, SetupUserInput, AddWindowEvent,animate};
+export{CreateWebsiteContainer, CreateArScene, CreateArCamera, CreateLight, CreateRenderer, AddArButton, SetupUserInput, AddWindowEvent,animate,Test};

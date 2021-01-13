@@ -40,7 +40,7 @@ function CreateRenderer()
 
 function AddArButton()
 {
- document.body.appendChild( createButton( renderer ) );
+ document.body.appendChild( ARButton.createButton( renderer ) );
  console.log("Create ar button function has been called")
 }
 
@@ -65,7 +65,7 @@ function SetupUserInput()
 
 function AddWindowEvent()
 {
- window.addEventListener( 'resize', onWindowResize, false );
+ window.addEventListener( 'resize', OnWindowResize, false );
  console.log("Create window event function has been called")
 }
 

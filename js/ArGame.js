@@ -1,20 +1,5 @@
-import * as THREE from './three.module.js';
-import { ARButton } from './ARButton.js';
-
-let number;
 let camera, scene, renderer;
 let controller;
-
-function Test()
-{
- console.log("Test function has been called succesfully");
- number = 5;
-}
-
-function LogNumber()
-{
- console.log("Printed number ", number);
-}
 
 function CreateWebsiteContainer()
 {
@@ -25,19 +10,19 @@ function CreateWebsiteContainer()
 
 function CreateArScene()
 {
- scene = new THREE.Scene();
+ scene = new Scene();
  console.log("Create scene function has been called")
 }
 
 function CreateArCamera()
 {
- camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 20 );
+ camera = new PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 20 );
  console.log("Create camera function has been called")
 }
 
 function CreateLight()
 {
- const light = new THREE.HemisphereLight( 0xffffff, 0xbbbbff, 1 );
+ const light = new HemisphereLight( 0xffffff, 0xbbbbff, 1 );
  light.position.set( 0.5, 1, 0.25 );
  scene.add( light );
  console.log("Create light function has been called")
@@ -45,7 +30,7 @@ function CreateLight()
 
 function CreateRenderer()
 {
- renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
+ renderer = new WebGLRenderer( { antialias: true, alpha: true } );
  renderer.setPixelRatio( window.devicePixelRatio );
  renderer.setSize( window.innerWidth, window.innerHeight );
  renderer.xr.enabled = true;
@@ -55,7 +40,7 @@ function CreateRenderer()
 
 function AddArButton()
 {
- document.body.appendChild( ARButton.createButton( renderer ) );
+ document.body.appendChild( createButton( renderer ) );
  console.log("Create ar button function has been called")
 }
 
@@ -64,9 +49,9 @@ function SetupUserInput()
  //Change this function if you want to change the function of the application
  function onSelect()
  {
-  const geometry = new THREE.BoxBufferGeometry( GenerateRandomNr(0.1,0.3), GenerateRandomNr(0.1,0.3), GenerateRandomNr(0.1,0.3)).rotateX(Math.PI / GenerateRandomNr(1,4));
-  const material = new THREE.MeshPhongMaterial( { color: 0xffffff * Math.random() } );
-  const mesh = new THREE.Mesh( geometry, material );
+  const geometry = new BoxBufferGeometry( GenerateRandomNr(0.1,0.3), GenerateRandomNr(0.1,0.3), GenerateRandomNr(0.1,0.3)).rotateX(Math.PI / GenerateRandomNr(1,4));
+  const material = new MeshPhongMaterial( { color: 0xffffff * Math.random() } );
+  const mesh = new Mesh( geometry, material );
   mesh.position.set( 0, 0, - 0.3 ).applyMatrix4( controller.matrixWorld );
   mesh.quaternion.setFromRotationMatrix( controller.matrixWorld );
   scene.add( mesh );
@@ -103,5 +88,3 @@ function render()
 {
  renderer.render( scene, camera );
 }
-
-export{CreateWebsiteContainer, CreateArScene, CreateArCamera, CreateLight, CreateRenderer, AddArButton, SetupUserInput, AddWindowEvent,animate,Test};

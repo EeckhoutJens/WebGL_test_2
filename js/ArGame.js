@@ -88,3 +88,8 @@ function render()
 {
  renderer.render( scene, camera );
 }
+
+function GenerateRandomNr(min,max)
+{
+ return Math.random() * (max - min) + min;
+}
